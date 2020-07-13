@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1 class="user_banner text-center">Welcome High School Student</h1>
+
+  <div class="container" style="margin-left:35%;">
+  <h2 class="txt-heading">Choose your Options:</h2>
+  
+  <form action="http://localhost:5000/hsresults" method="POST">
+      <div class="form-group col-md-4">
+        <label for="state">Where are you planning to go to College?</label>
+        <select id="state" name="state" class="form-control">
+        </select>
+      </div>
+
+        </select>
+      <!-- </div> -->
+      <div id="coll-location">
+      College Location
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="io_state"
+          id="io_state1"
+          value="in-state"
+          checked
+        >
+      </input>
+        <label class="form-check-label" for="exampleRadios1">
+          In-State
+        </label>
+      </div>
+      
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="io_state"
+          id="io_state2"
+          value="out-of-state"
+        />
+        <label class="form-check-label" for="exampleRadios2">
+          Out-of-State
+        </label>
+      </div>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="major">What major are you interested in?</label>
+        <select id="major" name="major" class="form-control">
+        </select>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="timing">When are you interested in enrolling?</label>
+        <select id="timing" class="form-control" name="timing">
+          <option selected value="Less than 1 Year">Less than 1 Year</option>
+          <option value="Greater than 1 Year">Greater than 1 Year</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  </div>
+          <hr />
+          
+        <script>
+
+          //set reference to the dropdown
+          let select = document.getElementById('major');
+
+          //clear existing options if page is reloaded
+          select.options.length = 0;
+
+          //set the major categories - will pull from major_category_only
+          let major_category = [
+            'Agriculture & Natural Resources',
+            'Arts',
+            'Biology & Life Science',
+            'Communications & Journalism',
+            'Computers & Mathematics',
+            'Education',
+            'Engineering',
+            'Humanities & Liberal Arts',
+            'Industrial Arts & Consumer Services',
+            'Law & Public Policy',
+            'Physical Sciences',
+            'Psychology & Social Work',
+            'Social Science',
+          ];
+          for (index in major_category) {
+            select.options[select.options.length] = new Option(major_category[index], major_category[index]);
+          }
+
+          let stateSelect = document.getElementById('state');
+
+          //clear existing options if page is reloaded
+          stateSelect.options.length = 0;
+
+          let states = ['Alabama', 'Alaska', 'American Samoa', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'District of Columbia', 'Federated States of Micronesia', 'Florida', 'Georgia', 'Guam', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Marshall Islands', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Northern Mariana Islands', 'Ohio', 'Oklahoma', 'Oregon', 'Palau', 'Pennsylvania', 'Puerto Rico', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virgin Island', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
+
+          for (index in states) {
+            stateSelect.options[stateSelect.options.length] = new Option(states[index], states[index]);
+          }
+
+        </script>
+{% endblock %}

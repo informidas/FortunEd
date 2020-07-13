@@ -1,0 +1,125 @@
+{% extends "base.html" %} {% block content %}
+<h2
+  style="
+    margin-top: 50px;
+    margin-bottom: 20px;
+    margin-right: 5%;
+    color: rgb(234, 212, 15);
+  "
+>
+  Summary
+</h2>
+<h4>
+  Based on your desire to live and work in
+  <span style="color: blue; font-size: larger; font-weight: 700;"
+    >{{ coli_data.State }}</span
+  >, the living wage for that state is:
+  <span style="color: blue; font-size: larger; font-weight: 700;"
+    >{{ wage}}</span
+  >
+  .Below are some metrics for consideration. We have included some major categories for comparison with your major:
+  <span style="color: blue; font-size: larger; font-weight: 700;"
+    >{{ coli_data.Utilities }}</span
+  >.
+</h4>
+
+<hr/>
+<br/>
+<br/>
+<div id="results">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Major</th>
+        <th scope="col">Career Option</th>
+        <th scope="col">Low Salary Range</th>
+        <th scope="col">Median Income</th>
+        <th scope="col">High Salary Range</th>
+        <th scope="col">State Living Wage</th>
+        <th scope="col">Your Debt</th>
+        <th scope="col">Option Recommended?</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for oc in outcome %}
+  
+      <tr>
+        <th scope="row">i</th>
+        <td>{{ oc.major_category }}</td>
+        <td>{{ oc.occupation }}</td>
+        <td>{{ oc.Low_25_pct_income }}</td>
+        <td>{{ oc.Median_Income }}</td>
+        <td>{{ oc.High_25_pct_income }}</td>
+        <td>{{ oc.living_wage }}</td>
+        <td>{{oc.debt }}</td>
+        <td>{{ oc.decision }}</td>
+      </tr>
+  
+      {% endfor %}
+    </tbody>
+  </table>
+  <br />
+  <br />
+  <div class="card-deck">
+    <div class="card">
+      <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+    </div>
+   
+  </div>
+<br/>
+<br/>
+<hr>
+<br/>
+<br/>
+  <div class="card-deck">
+    <div class="card">
+      <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+    </div>
+
+  </div>
+
+  
+</div>
+
+    
+    </div>
+    <hr />
+  
+{% endblock %}
+</body>
+</html>
